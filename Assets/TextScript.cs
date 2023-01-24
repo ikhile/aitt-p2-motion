@@ -18,14 +18,11 @@ public class TextScript : MonoBehaviour
     void Update()
     {
         Vector3 dir = Vector3.zero;
-        dir.x = -Input.acceleration.y;
+        dir.x = Input.acceleration.x;
+        dir.y = Input.acceleration.y;
         dir.z = Input.acceleration.x;
 
-        if (dir.sqrMagnitude > 1) dir.Normalize();
-
-        dir *= Time.deltaTime;
-
-        text.text = $"[{dir.x}, {dir.y}, {dir.z}]";
+        text.text = $"[{dir.x:0.00}, {dir.y:0.00}, {dir.z:0.00}]";
         // Debug.Log($"[{dir.x}, {dir.y}, {dir.z}]");
     }
 }
